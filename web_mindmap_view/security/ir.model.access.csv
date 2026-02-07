@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mindmap_template,mindmap.template,model_mindmap_template,base.group_user,1,1,1,1
+access_mindmap_mixin,mindmap.mixin,model_mindmap_mixin,base.group_user,1,1,1,1

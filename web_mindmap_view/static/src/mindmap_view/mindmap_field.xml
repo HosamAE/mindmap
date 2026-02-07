@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2026 HosamAE
+    Licensed under the GNU Lesser General Public License v3.0 or later (LGPL-3.0-or-later)
+    See the LICENSE file in the project root for more information.
+-->
+<templates xml:space="preserve">
+
+    <t t-name="web_mindmap_view.MindMapField">
+        <div t-att-class="className" class="d-flex flex-column h-100">
+            <div class="o_x2m_control_panel d-empty-none mt-1 mb-4">
+                <t t-if="displayControlPanelButtons">
+                    <div class="o_cp_buttons gap-1" role="toolbar" aria-label="Control panel buttons" t-ref="buttons">
+                        <t t-foreach="creates" t-as="create" t-key="create_index">
+                            <button
+                                t-if="create.type === 'create'"
+                                type="button"
+                                class="btn btn-secondary"
+                                t-att-class="create.class"
+                                t-on-click.stop.prevent="() => this.onAdd({ context: create.context })"
+                            >
+                                <t t-esc="create.string"/>
+                            </button>
+                        </t>
+                    </div>
+                </t>
+            </div>
+            
+            <div class="o_mindmap_main_container d-flex flex-grow-1 h-100 position-relative">
+                <div class="o_mindmap_renderer_container flex-grow-1 overflow-auto">
+                    <MindMapRenderer t-props="this.rendererProps" />
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

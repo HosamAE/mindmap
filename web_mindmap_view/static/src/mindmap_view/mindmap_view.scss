@@ -1,0 +1,609 @@
+/*
+ * Copyright (c) 2026 HosamAE
+ * Licensed under the GNU Lesser General Public License v3.0 or later (LGPL-3.0-or-later)
+ * See the LICENSE file in the project root for more information.
+ */
+.o_mindmap_view {
+  height: 100%;
+  width: 100%;
+  min-height: 85vh; /* Fix: Ensure view takes mostly full height even if content is small */
+  overflow: auto;
+  background-color: #f8f9fa;
+  padding: 15px 20px 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  .o_control_panel {
+    display: none !important; /* Fully hide the standard control panel bar to reclaim space */
+  }
+
+  .o_mindmap_renderer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-start;
+    padding-top: 15px;
+    padding-left: 20px;
+  }
+
+  /* THE NETWORK: Flex-Row Hierarchy */
+  .o_mindmap_node_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* PERFECT CENTERING: Node is always at 50% vertical height */
+    position: relative;
+    width: fit-content;
+
+    /* THE PRECISION VERTICAL SPINE SEGMENT */
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      /* Bridge the 30px gap between siblings (15px top, 15px bottom) */
+      top: -15.5px;
+      bottom: -15.5px;
+      width: 3px;
+      background-color: #adb5bd;
+      z-index: 1;
+    }
+
+    /* Start/End EXACTLY at the center of the node (The Masatara Junction) */
+    /* This makes the spine immune to the expansion of sub-trees */
+    &:first-child::after {
+      top: 50%;
+    }
+    &:last-child::after {
+      bottom: 50%;
+    }
+    &:only-child::after {
+      display: none;
+    }
+
+    /* FIX: Ensure hovered node and its card stack above everything else */
+    &:has(.o_mindmap_hover_card) {
+      z-index: 2000;
+    }
+  }
+
+  /* Root nodes have no parent spine to their left */
+  .o_mindmap_renderer > .o_mindmap_node_wrapper::after {
+    display: none !important;
+  }
+
+  /* Children Sub-tree Container */
+  .o_mindmap_children {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 40px;
+    position: relative;
+  }
+
+  /* 1. NODE CONTENT Section */
+  .o_mindmap_node_content {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+    margin-left: 40px;
+
+    /* Connection from Parent Spine BACK to this Node */
+    &::before {
+      content: '';
+      position: absolute;
+      left: -40px; /* EXACT: Hits the vertical spine face at zero */
+      top: 50%;
+      width: 43px; /* Reaches spine + 3px overlap UNDER node card */
+      height: 3px;
+      background-color: #adb5bd;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+  }
+
+  /* HIDE ROOT STARTING LINE */
+  .o_mindmap_node_wrapper.o_mindmap_root > .o_mindmap_node_content::before {
+    display: none !important;
+  }
+
+  .o_mindmap_node {
+    background: white;
+    border: 1px solid #dee2e6;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    min-width: 180px;
+    font-weight: 600;
+    color: #333;
+    position: relative;
+    z-index: 20;
+
+    &:hover {
+      border-color: #0097a7;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .o_mindmap_node_label {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 250px;
+    }
+  }
+
+  /* 2. THE BRIDGE (Controls Lane - Connector to children) */
+  .o_mindmap_connector_controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 15px;
+    position: relative;
+    z-index: 5;
+    height: 30px;
+    width: fit-content;
+
+    /* The Continuous Horizontal Rail */
+    &::after {
+      content: '';
+      position: absolute;
+      left: -18px;
+      right: 13px; /* Center of last button */
+      top: 50%;
+      height: 3px;
+      background-color: #adb5bd;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+
+    /* BRIDGE Extension to the next Children Spine (The intersection) */
+    &.o_has_children.o_is_expanded {
+      &::after {
+        right: -40px; /* EXACT: Hits the next spine face at zero */
+      }
+    }
+
+    .o_mindmap_control {
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      color: #495057;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      transition:
+        transform 0.1s ease-out,
+        color 0.15s;
+
+      &:hover {
+        transform: scale(1.15); /* Static zoom */
+        color: #0097a7;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  /* GHOST BUTTONS: Target specific corner hover */
+  .o_mindmap_node_ghost_buttons {
+    position: absolute;
+    top: -11px;
+    left: -11px;
+    right: -11px;
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none; /* Let hovers pass to children */
+    z-index: 200;
+  }
+
+  .o_mindmap_delete {
+    width: 22px;
+    height: 22px;
+    background-color: #dc3545; /* Red */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition:
+      opacity 0.1s,
+      transform 0.1s;
+    pointer-events: auto;
+
+    &:hover {
+      opacity: 1 !important;
+      transform: scale(1.1);
+    }
+  }
+
+  .o_mindmap_node:hover .o_mindmap_delete,
+  .o_mindmap_node_content:hover .o_mindmap_delete {
+    opacity: 0.3;
+  }
+
+  /* SEARCH HIGHLIGHTING (Glow Effect) */
+  .o_mindmap_node.o_highlighted {
+    border-color: #ffc107 !important;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6) !important;
+    outline: 2px solid #ffc107;
+    z-index: 50;
+    animation: pulseHighlight 2s infinite;
+  }
+
+  /* IN-PAGE SEARCH BAR (Floating Glass) */
+  .o_mindmap_search_container {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    pointer-events: none;
+    margin-bottom: 25px;
+  }
+
+  .o_mindmap_search_box {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 145, 161, 0.2);
+    border-radius: 50px;
+    padding: 8px 25px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:focus-within {
+      width: 500px;
+      background: #fff;
+      box-shadow: 0 12px 40px rgba(0, 145, 161, 0.3);
+      border-color: #0091a1;
+    }
+
+    input {
+      border: none;
+      outline: none;
+      width: 100%;
+      margin-left: 10px;
+      background: transparent;
+      color: #2c3e50;
+      font-size: 15px;
+      font-weight: 500;
+
+      &::placeholder {
+        color: #95a5a6;
+        font-style: italic;
+      }
+    }
+
+    i {
+      color: #0091a1;
+      font-size: 18px;
+    }
+  }
+
+  /* HOVER CARDS (Z-index War) */
+  .o_mindmap_hover_card {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #0097a7;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 250px;
+    pointer-events: auto;
+    margin-top: 10px;
+    animation: fadeInScale 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* Arrow */
+    &::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 12px;
+      height: 12px;
+      background: white;
+      border-left: 1px solid #0097a7;
+      border-top: 1px solid #0097a7;
+    }
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes pulseHighlight {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 193, 7, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.4);
+  }
+}
+
+/* CUSTOM SIDE PANEL SYSTEM (Pro-Level) */
+.o_mindmap_add_root_node {
+  margin-left: 117px; /* Center relative to 180px node */
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  color: #495057;
+  cursor: pointer;
+  transition:
+    width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    margin-left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-radius 0.3s,
+    background-color 0.3s;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+
+  /* Icon centering */
+  i {
+    font-size: 14px;
+    min-width: 26px; /* Fixed width to stay centered in collapsed state */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: margin 0.3s;
+  }
+
+  /* Text hidden initially with max-width */
+  span {
+    opacity: 0;
+    max-width: 0; /* Collapsed */
+    transition:
+      opacity 0.2s 0.1s,
+      /* Delay opacity slightly */ max-width 0.3s;
+    font-size: 13px;
+    font-weight: 600;
+    margin-left: 0;
+  }
+
+  &:hover {
+    margin-left: 40px; /* Shift to align with node */
+    width: 180px; /* Expand to node width */
+    border-radius: 6px;
+    color: #0097a7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #f8f9fa; /* Slight off-white to distinguish */
+
+    /* Use flex gap effectively by pushing content */
+    justify-content: center;
+
+    i {
+      margin-right: 5px;
+    }
+
+    span {
+      opacity: 1;
+      max-width: 120px; /* Allow space for text */
+    }
+  }
+}
+
+.o_mindmap_main_container {
+  position: relative;
+  overflow: hidden;
+}
+
+.o_mindmap_side_panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 500px;
+  background: #fff;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.3s ease-out;
+  border-left: 1px solid #dee2e6;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+
+  /* AGGRESSIVE FORM VIZ & TAB STYLING */
+  .nav-tabs {
+    display: flex !important;
+    width: 100%;
+
+    .nav-item {
+      /* Push Inspector to the right/end (RTL compatible) */
+      &:has(> [name='mindmap_settings']),
+      &:has(> [data-name='mindmap_settings']) {
+        margin-inline-start: auto !important;
+      }
+    }
+
+    .nav-link[name='mindmap_settings'],
+    .nav-link[data-name='mindmap_settings'] {
+      font-weight: 900 !important;
+      color: #0097a7 !important;
+      border-bottom: 2px solid #0097a7 !important;
+      background-color: #f0fbfc !important;
+      margin-left: 10px;
+
+      &::before {
+        content: '\f013'; /* Gear icon */
+        font-family: 'FontAwesome' !important;
+        margin-right: 6px;
+        font-weight: normal;
+        display: inline-block;
+      }
+
+      &.active {
+        box-shadow: 0 -3px 0 #0097a7 inset;
+        background-color: #e0f7f9 !important;
+      }
+    }
+  }
+
+  /* Specific content background for the inspector tab */
+  .tab-pane.active[name*='mindmap_settings'],
+  .tab-pane.active:has(.o_mindmap_settings_page),
+  .o_form_sheet > .o_group:has([name='mindmap_parent_id']) {
+    background-color: #fcfdfe !important;
+    border-top: 1px solid #e0f7f9;
+  }
+
+  .o_mindmap_side_panel_header {
+    background: #0097a7;
+    color: white;
+    height: 50px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .o_mindmap_side_panel_body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    background: #f8f9fa;
+    position: relative;
+
+    /* Ensure Form View fills the body */
+    .o_form_view {
+      padding: 0;
+      height: 100%;
+      background: transparent;
+
+      .o_form_sheet_bg {
+        background: transparent;
+        border: none;
+        padding: 0;
+
+        .o_form_sheet {
+          min-width: unset;
+          max-width: unset;
+          width: 100%;
+          border: none;
+          box-shadow: none;
+          margin: 0;
+          padding: 24px;
+          background: transparent;
+        }
+      }
+
+      /* HIDE NATIVE CONTROL PANEL - We use our Teal Footer */
+      .o_control_panel {
+        display: none !important;
+      }
+    }
+  }
+
+  .o_mindmap_side_panel_footer {
+    background: #0097a7;
+    height: 50px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+
+    .btn_save_custom {
+      background: white;
+      color: #0097a7;
+      border: none;
+      border-radius: 50px;
+      padding: 8px 35px;
+      font-weight: 800;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        background: #f0fdfd;
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+
+      i {
+        font-size: 16px;
+      }
+    }
+
+    .btn_open_form_custom {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      border-radius: 50px;
+      padding: 6px 25px; /* Slightly smaller padding to offset border */
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-right: 15px; /* Spacing */
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        border-color: white;
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      &:active {
+        transform: scale(0.98);
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      i {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,116 @@
+/*
+ * Copyright (c) 2026 HosamAE
+ * Licensed under the GNU Lesser General Public License v3.0 or later (LGPL-3.0-or-later)
+ * See the LICENSE file in the project root for more information.
+ */
+.o_mindmap_view {
+  // Dark mode background
+  background-color: #2e2e2e;
+
+  .o_mindmap_node {
+    background: #3e3e3e;
+    border-color: #4e4e4e;
+    color: #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      border-color: #00bcd4;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  /* Spine and lines */
+  .o_mindmap_node_wrapper::after,
+  .o_mindmap_node_content::before,
+  .o_mindmap_connector_controls::after {
+    background-color: #666;
+  }
+
+  /* Ghost Buttons (Settings & Delete) */
+  .o_mindmap_delete {
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  /* Delete remains red but slightly deeper */
+  .o_mindmap_delete {
+    background-color: #b71c1c !important;
+  }
+
+  /* Hover Cards */
+  .o_mindmap_hover_card {
+    background: #3e3e3e;
+    border-color: #4e4e4e;
+    color: #e0e0e0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Metrics in nodes */
+  .text-muted {
+    color: #aaa !important;
+  }
+
+  /* SIDE PANEL DARK MODE */
+  .o_mindmap_side_panel {
+    background-color: #2e2e2e;
+    border-left-color: #444;
+
+    .o_mindmap_side_panel_body {
+      .o_form_view {
+        background-color: #2e2e2e;
+        color: #e0e0e0;
+
+        input,
+        select,
+        textarea {
+          background-color: #3e3e3e !important;
+          color: #eee !important;
+          border-color: #555 !important;
+        }
+
+        label {
+          color: #bbb !important;
+        }
+      }
+    }
+  }
+  /* SEARCH BAR DARK MODE */
+  .o_mindmap_search_box {
+    background: rgba(33, 37, 41, 0.9) !important;
+    border-color: rgba(0, 145, 161, 0.4) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+
+    &:focus-within {
+      background: #212529 !important;
+      box-shadow: 0 12px 40px rgba(0, 145, 161, 0.5) !important;
+    }
+
+    input {
+      color: #e9ecef !important;
+      &::placeholder {
+        color: #6c757d !important;
+      }
+    }
+
+    i {
+      color: #00bcd4 !important;
+    }
+  }
+
+  /* Add Root Button Dark Mode */
+  .o_mindmap_add_root_node {
+    border-color: #666;
+    color: #aaa;
+    background: rgba(62, 62, 62, 0.5);
+
+    &:hover {
+      border-color: #00bcd4;
+      color: #00bcd4;
+      background: rgba(0, 188, 212, 0.1);
+    }
+  }
+}
