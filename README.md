@@ -2,7 +2,7 @@
 
 **Transform your data relationships into interactive, hierarchical Mind Maps.**
 
-The `web_mindmap_view` module introduces a powerful new view type `mindmap` and a form widget `mindmap` to Odoo 17/18. It allows users to visualize, edit, and navigate complex parent-child relationships (like hierarchies, organizational charts, project tasks, or categories) in a beautiful, infinite-canvas style interface.
+The `web_mindmap_view` module introduces a powerful new view type `mindmap` and a form widget `mindmap` to Odoo 18. It allows users to visualize, edit, and navigate complex parent-child relationships (like hierarchies, organizational charts, project tasks, or categories) in a beautiful, infinite-canvas style interface.
 
 ## 🌟 Key Features
 
