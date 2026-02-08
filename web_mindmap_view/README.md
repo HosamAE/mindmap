@@ -15,6 +15,8 @@ The `web_mindmap_view` module introduces a powerful new view type `mindmap` and 
 - **Dark Mode**: Fully distinct, premium Dark Mode support.
 - **Add Root & Children**: Easily create new root nodes or append children with a click.
 
+![Strategy Board](static/description/assets/screenshot_01.png)
+
 ## 📦 Installation
 
 1.  Clone/Download this module into your Odoo addons path.
@@ -88,6 +90,17 @@ The module uses SCSS with distinct support for **Dark Mode**.
 
 - **Light Mode**: Clean, white-card aesthetic with teal accents (`#0097a7`).
 - **Dark Mode**: Deep gray backgrounds (`#2e2e2e`), card overlays, and neon-cyan accents (`#00bcd4`).
+
+![Dark Mode](static/description/assets/screenshot_02.png)
+
+## 📸 Gallery
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <img src="static/description/assets/screenshot_03.png" width="45%" />
+    <img src="static/description/assets/screenshot_04.png" width="45%" />
+    <img src="static/description/assets/screenshot_05.png" width="45%" />
+    <img src="static/description/assets/screenshot_06.png" width="45%" />
+</div>
 
 ## 🛠 Configuration Attributes
 
