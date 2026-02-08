@@ -4,7 +4,7 @@
 
 {
     "name": "Tree/MindMap View (Arborization)",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "category": "Hidden/Tools",
     "summary": "Advanced Mind Map & Tree Visualization View",
     "description": """
@@ -14,7 +14,8 @@ Features:
 - Root, Branch, Leaf visualization.
 - Expand/Collapse levels.
 - Side Panel editing.
-- Drag & Drop (planned).
+
+Note: This is a developer tool. For demo data, install 'web_mindmap_demo' after installing this module.
 
 Author: HosamAE
     """,
