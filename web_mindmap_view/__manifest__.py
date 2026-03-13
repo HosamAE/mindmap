@@ -5,7 +5,7 @@
 {
     "name": "Tree/MindMap View (Arborization)",
     "version": "18.0.1.0.2",
-    "category": "Hidden/Tools",
+    "category": "Tools",
     "summary": "Advanced Mind Map & Tree Visualization View",
     "description": """
 This module adds a new view type 'mindmap' to Odoo.
