@@ -20,4 +20,5 @@
     "installable": True,
     "application": False,
     "license": "LGPL-3",
+    "images": ["static/description/index_background.gif"],
 }

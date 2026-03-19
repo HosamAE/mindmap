@@ -44,7 +44,7 @@ Author: HosamAE
         ],
     },
     "license": "LGPL-3",
-    "images": ["static/description/screenshot_canvas.png"],
+    "images": ["static/description/index_background.gif"],
     "installable": True,
     "application": False,
 }
