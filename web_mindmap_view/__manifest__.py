@@ -4,7 +4,7 @@
 
 {
     "name": "Tree/MindMap View (Arborization)",
-    "version": "18.0.1.0.2",
+    "version": "17.0.1.0.2",
     "category": "Tools",
     "summary": "Advanced Mind Map & Tree Visualization View",
     "description": """
