@@ -1,6 +1,6 @@
 <!-- =====================================================================
      Mind Map View — Odoo App Store Page
-     Version placeholder: 17.0 (replaced per branch: 17.0 / 18.0 / 19.0)
+     Version placeholder: 19.0 (replaced per branch: 17.0 / 18.0 / 19.0)
      ===================================================================== -->
 
 <!-- ── Hero Banner ─────────────────────────────────────────────────── -->
@@ -46,44 +46,44 @@
     </div>
 
     <div style="flex: 1; min-width: 260px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: center;">
-      <i class="fa fa-sitemap" style="font-size: 38px; color: #0097a7; margin-bottom: 16px; display: block;"></i>
-      <h4 style="font-weight: 700; color: #333;">One2many Field Widget</h4>
-      <p style="color: #666; font-size: 14px; line-height: 1.7;">Embed the mind map directly inside any Form View as a <code>one2many</code> widget. Visual sub-record management with zero overhead.</p>
-    </div>
-
-    <div style="flex: 1; min-width: 260px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: center;">
-      <i class="fa fa-expand" style="font-size: 38px; color: #0097a7; margin-bottom: 16px; display: block;"></i>
-      <h4 style="font-weight: 700; color: #333;">Smart Expand / Collapse</h4>
-      <p style="color: #666; font-size: 14px; line-height: 1.7;">Set a <code>default_depth</code> parameter and let users expand or collapse any branch on demand — ideal for very deep trees.</p>
-    </div>
-
-    <div style="flex: 1; min-width: 260px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: center;">
-      <i class="fa fa-moon-o" style="font-size: 38px; color: #0097a7; margin-bottom: 16px; display: block;"></i>
-      <h4 style="font-weight: 700; color: #333;">Native Dark Mode</h4>
-      <p style="color: #666; font-size: 14px; line-height: 1.7;">Fully integrated with Odoo's native dark theme. Canvas, nodes, and UI elements all adapt automatically.</p>
+      <i class="fa fa-search" style="font-size: 38px; color: #0097a7; margin-bottom: 16px; display: block;"></i>
+      <h4 style="font-weight: 700; color: #333;">Live Node Search</h4>
+      <p style="color: #666; font-size: 14px; line-height: 1.7;">Search across all nodes instantly. Matching nodes are highlighted in real time — the rest fade away, keeping your focus sharp.</p>
     </div>
 
     <div style="flex: 1; min-width: 260px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: center;">
       <i class="fa fa-sliders" style="font-size: 38px; color: #0097a7; margin-bottom: 16px; display: block;"></i>
       <h4 style="font-weight: 700; color: #333;">Inline Side Panel</h4>
-      <p style="color: #666; font-size: 14px; line-height: 1.7;">Click the gear icon on any node to open a contextual side panel for instant record editing without leaving the map.</p>
+      <p style="color: #666; font-size: 14px; line-height: 1.7;">Click any node to open a contextual panel and edit record fields directly without leaving the map. Changes save instantly.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 260px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: center;">
+      <i class="fa fa-moon-o" style="font-size: 38px; color: #0097a7; margin-bottom: 16px; display: block;"></i>
+      <h4 style="font-weight: 700; color: #333;">Native Dark Mode</h4>
+      <p style="color: #666; font-size: 14px; line-height: 1.7;">Fully integrated with Odoo's native dark theme. Canvas, nodes, connectors, and side panel all adapt automatically.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 260px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: center;">
+      <i class="fa fa-sitemap" style="font-size: 38px; color: #0097a7; margin-bottom: 16px; display: block;"></i>
+      <h4 style="font-weight: 700; color: #333;">One2many Widget</h4>
+      <p style="color: #666; font-size: 14px; line-height: 1.7;">Embed the mind map inside any Form View as a <code>one2many</code> widget tab. Visual sub-record management with zero overhead.</p>
     </div>
 
     <div style="flex: 1; min-width: 260px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: center;">
       <i class="fa fa-paint-brush" style="font-size: 38px; color: #0097a7; margin-bottom: 16px; display: block;"></i>
       <h4 style="font-weight: 700; color: #333;">Node Color Coding</h4>
-      <p style="color: #666; font-size: 14px; line-height: 1.7;">Assign colors to nodes for quick visual tagging, prioritization, and category grouping across the hierarchy.</p>
+      <p style="color: #666; font-size: 14px; line-height: 1.7;">Assign colors to nodes for quick visual tagging, prioritization, and category grouping across the full hierarchy.</p>
     </div>
 
   </div>
 </section>
 
-<!-- ── Feature 1: Hierarchical Overview ────────────────────────────── -->
+<!-- ── Feature 1: Hierarchy Overview (screenshot_01 — Light mode full tree) ── -->
 <section class="oe_container" style="padding: 40px 0;">
   <div class="oe_row oe_spaced align-items-center" style="display: flex; flex-wrap: wrap; gap: 20px;">
     <div class="oe_span6" style="padding: 20px;">
-      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">1. Full Hierarchy Overview</h3>
-      <p style="font-size: 15px; color: #555; line-height: 1.8;">Every record in your recursive model becomes a node. Root records sit at the center; branches and leaves fan out automatically. The layout engine handles thousands of nodes gracefully, giving you a complete bird's-eye view of your data structure at a glance.</p>
+      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">1. Full Hierarchy at a Glance</h3>
+      <p style="font-size: 15px; color: #555; line-height: 1.8;">Every record in your recursive model becomes a node. Root records sit on the left; branches and leaves fan out to the right automatically. Color-coded left borders let you visually group and distinguish branches at a glance — no configuration required.</p>
     </div>
     <div class="oe_span6" style="padding: 20px;">
       <img src="assets/screenshot_01.png" style="width: 100%; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.12);"/>
@@ -91,12 +91,12 @@
   </div>
 </section>
 
-<!-- ── Feature 2: Dark Mode ─────────────────────────────────────────── -->
+<!-- ── Feature 2: Live Search (screenshot_02 — search highlights matching nodes) ── -->
 <section class="oe_container oe_dark" style="background-color: #f1f3f5; padding: 40px 0; border-radius: 15px; margin-bottom: 20px;">
   <div class="oe_row oe_spaced align-items-center" style="display: flex; flex-wrap: wrap; flex-direction: row-reverse; gap: 20px;">
     <div class="oe_span6" style="padding: 20px;">
-      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">2. Native Dark Mode</h3>
-      <p style="font-size: 15px; color: #555; line-height: 1.8;">The canvas is built with Odoo's theming system. When your users switch to dark mode in their preferences, the entire mind map — background, nodes, connectors, and panels — transitions seamlessly. No extra configuration needed.</p>
+      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">2. Instant Node Search</h3>
+      <p style="font-size: 15px; color: #555; line-height: 1.8;">Type in the search bar to filter nodes in real time. Matching nodes are highlighted with a yellow border while non-matching nodes fade out — making it effortless to locate any record inside a large, deeply nested hierarchy.</p>
     </div>
     <div class="oe_span6" style="padding: 20px;">
       <img src="assets/screenshot_02.png" style="width: 100%; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.12);"/>
@@ -104,12 +104,12 @@
   </div>
 </section>
 
-<!-- ── Feature 3: One2many Field ────────────────────────────────────── -->
+<!-- ── Feature 3: Side Panel Light (screenshot_03 — panel open in light mode) ── -->
 <section class="oe_container" style="padding: 40px 0;">
   <div class="oe_row oe_spaced align-items-center" style="display: flex; flex-wrap: wrap; gap: 20px;">
     <div class="oe_span6" style="padding: 20px;">
-      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">3. Embedded Form View Widget</h3>
-      <p style="font-size: 15px; color: #555; line-height: 1.8;">Use <code>&lt;field widget="mindmap"&gt;</code> inside any standard form view to render a One2many relationship as a mind map. Ideal for task dependencies, BOM components, project sub-tasks, and any parent-child data structure.</p>
+      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">3. Contextual Side Panel</h3>
+      <p style="font-size: 15px; color: #555; line-height: 1.8;">Clicking a node slides open a rich side panel displaying the record's fields, status bar, and custom metrics — all defined by you via <code>side_panel_fields</code>. Edit and save without ever leaving the map. An <b>Open Form</b> button jumps to the full record when needed.</p>
     </div>
     <div class="oe_span6" style="padding: 20px;">
       <img src="assets/screenshot_03.png" style="width: 100%; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.12);"/>
@@ -117,12 +117,12 @@
   </div>
 </section>
 
-<!-- ── Feature 4: Side Panel ────────────────────────────────────────── -->
+<!-- ── Feature 4: Dark Mode (screenshot_04 — full map in dark mode) ── -->
 <section class="oe_container oe_dark" style="background-color: #f1f3f5; padding: 40px 0; border-radius: 15px; margin-bottom: 20px;">
   <div class="oe_row oe_spaced align-items-center" style="display: flex; flex-wrap: wrap; flex-direction: row-reverse; gap: 20px;">
     <div class="oe_span6" style="padding: 20px;">
-      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">4. Live Editing via Side Panel</h3>
-      <p style="font-size: 15px; color: #555; line-height: 1.8;">Clicking the gear icon on a node opens a sleek slide-in panel. Fields listed in <code>side_panel_fields</code> become instantly editable. Changes are saved and reflected across the canvas without a page reload.</p>
+      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">4. Native Dark Mode</h3>
+      <p style="font-size: 15px; color: #555; line-height: 1.8;">When users switch to Odoo's dark theme, the entire mind map transitions with it — dark canvas, light node text, colored connectors, and all UI controls. No extra module or custom CSS is needed; it works out of the box with zero configuration.</p>
     </div>
     <div class="oe_span6" style="padding: 20px;">
       <img src="assets/screenshot_04.png" style="width: 100%; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.12);"/>
@@ -130,12 +130,12 @@
   </div>
 </section>
 
-<!-- ── Feature 5: Context Menu ──────────────────────────────────────── -->
+<!-- ── Feature 5: Dark Mode + Side Panel (screenshot_05 — panel open in dark mode) ── -->
 <section class="oe_container" style="padding: 40px 0;">
   <div class="oe_row oe_spaced align-items-center" style="display: flex; flex-wrap: wrap; gap: 20px;">
     <div class="oe_span6" style="padding: 20px;">
-      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">5. Context Menu &amp; Color Tags</h3>
-      <p style="font-size: 15px; color: #555; line-height: 1.8;">Right-clicking a node reveals a contextual menu to <b>add a child node</b> or <b>delete the branch</b>. Each node also supports color assignment for quick visual categorization — perfect for priority tagging and status grouping.</p>
+      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">5. Dark Mode + Live Editing</h3>
+      <p style="font-size: 15px; color: #555; line-height: 1.8;">The side panel is fully dark-mode aware. Open it on any node while in dark theme to view and edit all configured fields — completion %, allocated budget, FontAwesome icons, status bars, and more — all in a sleek, eye-friendly interface.</p>
     </div>
     <div class="oe_span6" style="padding: 20px;">
       <img src="assets/screenshot_05.png" style="width: 100%; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.12);"/>
@@ -143,12 +143,12 @@
   </div>
 </section>
 
-<!-- ── Feature 6: Expand/Collapse ──────────────────────────────────── -->
+<!-- ── Feature 6: One2many Form Widget (screenshot_06 — embedded in form view) ── -->
 <section class="oe_container oe_dark" style="background-color: #f1f3f5; padding: 40px 0; border-radius: 15px;">
   <div class="oe_row oe_spaced align-items-center" style="display: flex; flex-wrap: wrap; flex-direction: row-reverse; gap: 20px;">
     <div class="oe_span6" style="padding: 20px;">
-      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">6. Depth-Controlled Expansion</h3>
-      <p style="font-size: 15px; color: #555; line-height: 1.8;">Configure the initial visible depth with the <code>default_depth</code> attribute. Users can expand or collapse individual branches on the fly — keeping the view clean whether your tree spans 3 levels or 30.</p>
+      <h3 style="color: #0097a7; font-weight: 700; font-size: 26px;">6. Embedded Form View Widget</h3>
+      <p style="font-size: 15px; color: #555; line-height: 1.8;">Use the mind map as a tab widget inside any standard Form View by adding a <code>one2many</code> field with <code>widget="mindmap"</code>. Sub-tasks, components, child records — all rendered as an interactive map directly inside the parent record form.</p>
     </div>
     <div class="oe_span6" style="padding: 20px;">
       <img src="assets/screenshot_06.png" style="width: 100%; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.12);"/>
@@ -190,11 +190,11 @@
       </div>
       <div style="flex: 1; min-width: 200px; background: #f8f9fa; padding: 16px 20px; border-radius: 10px; border-left: 4px solid #0097a7;">
         <code style="color: #0097a7;">side_panel_fields</code>
-        <p style="color: #666; font-size: 13px; margin: 6px 0 0;">Comma-separated field names shown/edited in the side panel.</p>
+        <p style="color: #666; font-size: 13px; margin: 6px 0 0;">Comma-separated field names shown and edited in the side panel.</p>
       </div>
       <div style="flex: 1; min-width: 200px; background: #f8f9fa; padding: 16px 20px; border-radius: 10px; border-left: 4px solid #0097a7;">
         <code style="color: #0097a7;">settings_view_id</code>
-        <p style="color: #666; font-size: 13px; margin: 6px 0 0;">External ID of the form view to open when clicking a node's full-edit button.</p>
+        <p style="color: #666; font-size: 13px; margin: 6px 0 0;">External ID of the form view opened when clicking a node's full-edit button.</p>
       </div>
     </div>
 
