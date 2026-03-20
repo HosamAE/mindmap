@@ -1,52 +1,85 @@
+<!-- =====================================================================
+     Mind Map Demo Data — Odoo App Store Page
+     Version placeholder: 17.0 (replaced per branch: 17.0 / 18.0 / 19.0)
+     ===================================================================== -->
+
+<!-- ── Hero Banner ─────────────────────────────────────────────────── -->
 <section class="oe_container" style="font-family: 'Roboto', sans-serif;">
   <div class="oe_row oe_spaced">
-    <div style="background-image: url('index_background.gif'); background-size: cover; background-position: center; border-radius: 15px; overflow: hidden; position: relative; min-height: 350px; display: flex; align-items: center; justify-content: center; text-align: center;">
-      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);"></div>
+    <div style="background-image: url('index_background.gif'); background-size: cover; background-position: center; border-radius: 15px; overflow: hidden; position: relative; min-height: 360px; display: flex; align-items: center; justify-content: center; text-align: center;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.80) 100%);"></div>
       <div style="position: relative; z-index: 1; padding: 40px;">
+        <img src="icon.png" alt="Mind Map Demo Icon" style="width: 100px; border-radius: 18px; box-shadow: 0 10px 20px rgba(0,0,0,0.4); margin-bottom: 22px;"/>
         <h1 style="color: #ffc107; font-weight: 800; font-size: 42px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Mind Map Demo Data</h1>
-        <h3 style="color: #e0e0e0; font-weight: 300; font-size: 22px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Strategic Planning &amp; Corporate Blueprint</h3>
-        <p style="color: #ddd; max-width: 600px; margin: 20px auto 0; font-size: 16px;">A rich, pre-configured dataset designed to perfectly showcase the power of the Mind Map View engine.</p>
+        <h3 style="color: #e0e0e0; font-weight: 300; font-size: 21px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Corporate Blueprint — Ready-to-Explore Dataset</h3>
+        <p style="color: #ddd; max-width: 580px; margin: 18px auto 0; font-size: 15px; line-height: 1.7;">A rich, pre-configured dataset with multiple tree structures that instantly showcases the full power of the Mind Map View engine.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Requirement Alert -->
-<section class="oe_container" style="margin-top: -15px;">
-    <div class="oe_row oe_spaced">
-        <div style="background-color: #fff3ce; border-left: 5px solid #ffc107; padding: 25px; border-radius: 10px; display: flex; align-items: center; gap: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); flex-wrap: wrap;">
-            <i class="fa fa-info-circle text-warning" style="font-size: 40px;"></i>
-            <div style="flex: 1; min-width: 300px;">
-                <h4 style="color: #856404; margin: 0; font-weight: 700;">Base Module Required</h4>
-                <p style="color: #856404; margin: 5px 0 0 0; font-size: 15px;">This is a data module. It absolutely requires the <b>Mind Map View</b> core engine to function.</p>
-            </div>
-            <div style="margin-left: auto;">
-                <a href="https://apps.odoo.com/apps/modules/17.0/web_mindmap_view" target="_blank" class="btn btn-warning" style="font-weight: 600; padding: 10px 25px; border-radius: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 0px; display: block; text-transform: uppercase;">Get Main Module</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="oe_container oe_dark" style="background-color: #f1f3f5; padding: 40px 0; border-radius: 15px; margin: 40px 0;">
-  <div class="oe_row oe_spaced text-center mb-4">
-    <h2 class="oe_slogan" style="color: #7c7bad; font-weight: 700; margin-bottom: 20px;">What's Inside?</h2>
-  </div>
-  <div class="oe_row oe_spaced" style="display: flex; flex-wrap: wrap; gap: 30px; padding: 0 20px;">
-    <div style="flex: 1; min-width: 250px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: left;">
-      <h4 style="color: #7c7bad; font-weight: 700;"><i class="fa fa-sitemap" style="margin-right: 10px;"></i> Strategic Depth</h4>
-      <p style="color: #666; font-size: 15px; margin-top: 10px; line-height: 1.6;">Comes with a "Corporate Blueprint" containing 5+ levels of tree depth, mapping everything from high-level CEO vision down to tech operations.</p>
-    </div>
-    <div style="flex: 1; min-width: 250px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: left;">
-      <h4 style="color: #7c7bad; font-weight: 700;"><i class="fa fa-paint-brush" style="margin-right: 10px;"></i> Styling Examples</h4>
-      <p style="color: #666; font-size: 15px; margin-top: 10px; line-height: 1.6;">Learn how to implement colored nodes and custom inline side panel configurations effortlessly by reading the source code.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Screenshot Section -->
-<section class="oe_container text-center" style="padding-bottom: 40px;">
+<!-- ── Dependency Alert ─────────────────────────────────────────────── -->
+<section class="oe_container" style="margin-top: -10px;">
   <div class="oe_row oe_spaced">
-    <h2 class="oe_slogan" style="color: #7c7bad; font-weight: 700; margin-bottom: 30px;">Full Sample Preview</h2>
-    <img src="screenshot_01.png" style="width: 100%; max-width: 900px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 1px solid #eaeaea;"/>
+    <div style="background-color: #fff8e1; border-left: 5px solid #ffc107; padding: 22px 28px; border-radius: 12px; display: flex; align-items: center; gap: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.06); flex-wrap: wrap;">
+      <i class="fa fa-exclamation-triangle" style="font-size: 36px; color: #f9a825;"></i>
+      <div style="flex: 1; min-width: 280px;">
+        <h4 style="color: #795600; margin: 0 0 6px; font-weight: 700; font-size: 16px;">Requires: Mind Map View (Core Engine)</h4>
+        <p style="color: #795600; margin: 0; font-size: 14px;">This is a <b>data-only</b> module. It depends on the <b>web_mindmap_view</b> module to function. Please install it first.</p>
+      </div>
+      <div>
+        <a href="https://apps.odoo.com/apps/modules/17.0/web_mindmap_view" target="_blank" class="btn btn-warning" style="font-weight: 600; padding: 10px 26px; border-radius: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.12); border: 0; text-transform: uppercase; white-space: nowrap;">
+          Get Core Module
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── What's Included ──────────────────────────────────────────────── -->
+<section class="oe_container oe_dark" style="background-color: #f1f3f5; padding: 46px 0; border-radius: 15px; margin: 36px 0;">
+  <div class="oe_row oe_spaced text-center mb-4">
+    <h2 class="oe_slogan" style="color: #7c7bad; font-weight: 700; margin-bottom: 12px;">What's Included?</h2>
+    <p style="color: #666; font-size: 15px; max-width: 500px; margin: 0 auto;">Pre-built records that demonstrate every feature of the Mind Map engine out of the box.</p>
+  </div>
+  <div class="oe_row oe_spaced" style="display: flex; flex-wrap: wrap; gap: 24px; padding: 0 20px; justify-content: center;">
+
+    <div style="flex: 1; min-width: 240px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: left;">
+      <h4 style="color: #7c7bad; font-weight: 700; margin-top: 0;">
+        <i class="fa fa-sitemap" style="margin-right: 10px;"></i>Deep Tree Structure
+      </h4>
+      <p style="color: #666; font-size: 14px; line-height: 1.7; margin: 10px 0 0;">A "Corporate Blueprint" dataset with 5+ levels of nesting — from CEO vision down to individual operational tasks. Perfect for testing expand/collapse behavior.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 240px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: left;">
+      <h4 style="color: #7c7bad; font-weight: 700; margin-top: 0;">
+        <i class="fa fa-paint-brush" style="margin-right: 10px;"></i>Color-Tagged Nodes
+      </h4>
+      <p style="color: #666; font-size: 14px; line-height: 1.7; margin: 10px 0 0;">Nodes come with pre-assigned colors to demonstrate the color-coding feature. A useful reference for developers customizing their own implementations.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 240px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: left;">
+      <h4 style="color: #7c7bad; font-weight: 700; margin-top: 0;">
+        <i class="fa fa-code" style="margin-right: 10px;"></i>Side Panel Config Example
+      </h4>
+      <p style="color: #666; font-size: 14px; line-height: 1.7; margin: 10px 0 0;">The included view definition shows a working <code>side_panel_fields</code> setup. Read the source to copy the pattern into your own modules instantly.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 240px; background: white; padding: 28px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: left;">
+      <h4 style="color: #7c7bad; font-weight: 700; margin-top: 0;">
+        <i class="fa fa-list-ul" style="margin-right: 10px;"></i>Menu &amp; Action Wired Up
+      </h4>
+      <p style="color: #666; font-size: 14px; line-height: 1.7; margin: 10px 0 0;">A dedicated menu item and window action are pre-configured so you can open the mind map view immediately after installing — no setup required.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Screenshot Preview ────────────────────────────────────────────── -->
+<section class="oe_container text-center" style="padding-bottom: 50px;">
+  <div class="oe_row oe_spaced">
+    <h2 class="oe_slogan" style="color: #7c7bad; font-weight: 700; margin-bottom: 28px;">Live Preview</h2>
+    <img src="screenshot_01.png" style="width: 100%; max-width: 920px; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.14); border: 1px solid #e0e0e0;"/>
+    <p style="color: #999; font-size: 13px; margin-top: 14px;">The Corporate Blueprint mind map — rendered with the default depth of 2 and color-tagged nodes.</p>
   </div>
 </section>
